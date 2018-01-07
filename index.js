@@ -10,12 +10,16 @@ app.get('/download', (req, res) => {
 	let currentPage = null;
 	let tempName = null;
 	let options = {};
+	let format = 'A4';
 	if (req.query.asfile) {
 		options = {
 			headers: {
 				'Content-Disposition': 'attachment; filename=download.pdf'
 			}
 		};
+	}
+	if (req.query.format) {
+		format = req.query.format;
 	}
 	puppeteer.launch()
 		.then((browser) => {
@@ -28,7 +32,7 @@ app.get('/download', (req, res) => {
 		})
 		.then(() => {
 			tempName = temp.path({suffix: '.pdf'});
-			return currentPage.pdf({path: tempName, format: 'A4'});
+			return currentPage.pdf({path: tempName, format: format});
 		})
 		.then(() => {
 			return currentBrowser.close();
