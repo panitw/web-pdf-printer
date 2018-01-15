@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 const temp = require('temp');
 const fs = require('fs');
 
-app.get('/download', (req, res) => {
+app.get('/node/pdf-printer/download', (req, res) => {
 	let url = req.query.url;
 	let currentBrowser = null;
 	let currentPage = null;
@@ -44,6 +44,6 @@ app.get('/download', (req, res) => {
 		});
 });
 
-app.listen(3008, () => {
-	console.log('Web PDF Printer service running on port 3008')
+app.listen(process.env.PORT, () => {
+	console.log('Web PDF Printer service running on port ' + process.env.PORT);
 });
