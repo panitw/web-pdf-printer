@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"express": "^4.16.2",
+		"express": "^4.16.3",
 		"puppeteer": "^0.13.0",
 		"temp": "^0.8.3"
 	}
