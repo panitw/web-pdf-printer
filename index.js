@@ -38,8 +38,7 @@ app.get('/node/pdf-printer/download', (req, res) => {
 			ft.push('<table style="width: 100%"><tr><td style="text-align: left; width: 33%;">');
 			ft.push('Printed By: ');
 			ft.push(printedBy);
-			ft.push('</td>');
-			ft.push('<td style="text-align: center;">');
+			ft.push(' ');
 			ft.push(moment().format('DD/MM/YYYY HH:mm:ss'));
 			ft.push('</td>');
 			ft.push('<td style="text-align: right; width: 33%;">');
