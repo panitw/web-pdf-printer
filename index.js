@@ -53,7 +53,7 @@ app.get('/node/pdf-printer/download', (req, res) => {
 				displayHeaderFooter: true,
 				footerTemplate: ft.join(''),
 				margin: {
-					bottom: "100px"
+					bottom: "40px"
 				}
 			});
 		})
