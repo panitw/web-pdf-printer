@@ -34,14 +34,18 @@ app.get('/node/pdf-printer/download', (req, res) => {
 		})
 		.then(() => {
 			var ft = [];
-			ft.push('<div style="font-size:10px; width:100%; text-align:right; padding-right: 20px; padding-left: 20px;">');
-			ft.push('<table style="width: 100%"><tr><td style="text-align: left; width: 33%;">');
+			ft.push('<div style="font-size:8px; width:100%; text-align:right; padding-right: 20px; padding-left: 20px;">');
+			ft.push('<table style="width: 100%"><tr><td style="text-align: left; width: 33%; vertical-align: bottom;">');
 			ft.push('Printed By: ');
 			ft.push(printedBy);
 			ft.push(' ');
 			ft.push(moment().format('DD/MM/YYYY HH:mm:ss'));
 			ft.push('</td>');
-			ft.push('<td style="text-align: right; width: 33%;">');
+			ft.push('<td style="text-align: right; width: 33%; vertical-align: bottom;">');
+			ft.push('<span style="font-size: 8px;">ePDR template created by</span>');
+			ft.push('<br>');
+			ft.push('<span style="font-size: 8px;">Kanjanapong Y., QA Initiative, Sept\'18</span>');
+			ft.push('<br>');
 			ft.push('Page <span class="pageNumber"></span> ');
 			ft.push('of ');
 			ft.push('<span class="totalPages"></span>');
@@ -54,9 +58,11 @@ app.get('/node/pdf-printer/download', (req, res) => {
 				path: tempName,
 				format: format,
 				displayHeaderFooter: true,
+				headerTemplate: '<span></span>',
 				footerTemplate: ft.join(''),
 				margin: {
-					bottom: "40px"
+					top: "30px",
+					bottom: "70px"
 				}
 			});
 		})
