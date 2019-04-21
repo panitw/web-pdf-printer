@@ -71,7 +71,7 @@ app.get('/node/pdf-printer/download', (req, res) => {
 		})
 		.then(() => {
 			res.sendFile(tempName, options, function (err) {
-				fs.unlink(tempName);
+				fs.unlinkSync(tempName);
 			});
 		});
 });
